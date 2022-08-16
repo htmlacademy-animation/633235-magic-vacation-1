@@ -1,0 +1,16 @@
+@mixin fade-in($active, $settings: false, $duration: 200ms, $delay: 0ms) {
+  @if($settings) {
+    transition-property: opacity, transform;
+    transition-duration: $duration;
+    transition-delay: $delay;
+  }
+
+  @if ($active) {
+    opacity: 1;
+    transform: translateY(0);
+  } @else {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+}
