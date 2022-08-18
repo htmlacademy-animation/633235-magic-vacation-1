@@ -23,6 +23,10 @@
   @include fade-transition(800ms, 500ms);
   @include fade-in-left-initial();
 
+  &:nth-of-type(2n) {
+    @include fade-transition(800ms, 800ms);
+  }
+
   &.swiper-slide-active,
   &.swiper-slide-next {
     @include fade-in-left-active();
