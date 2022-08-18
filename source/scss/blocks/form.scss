@@ -1,7 +1,10 @@
+@import "../animation/mixins.scss";
+
 .form {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .form__label {
@@ -34,7 +37,6 @@
   margin-right: 3rem;
   padding: 0 5.6rem;
   height: 6rem;
-  width: calc(100% - 21rem);
   text-transform: uppercase;
   font: inherit;
   font-size: 2.4rem;
@@ -43,6 +45,12 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
+  @include grow-transition(400ms, 0);
+  @include grow-initial();
+
+  .active & {
+    @include grow-active(calc(100% - 21rem));
+  }
 
   &:focus {
     border: 1px solid $c-purple;
@@ -79,7 +87,7 @@
 }
 
 .form__button {
-  flex-grow: 1;
+  //flex-grow: 1;
 
   @media (orientation: portrait) {
     position: relative;

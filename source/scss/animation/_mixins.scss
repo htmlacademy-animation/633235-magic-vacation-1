@@ -23,3 +23,17 @@
   opacity: 1;
   transform: translateX(0);
 }
+
+@mixin grow-transition($duration: 200ms, $delay: 0ms, ) {
+  transition-property: width;
+  transition-duration: $duration;
+  transition-delay: $delay;
+}
+
+@mixin grow-initial($initial-size: 0) {
+  width: $initial-size;
+}
+
+@mixin grow-active($active-size: 100%) {
+  width: $active-size;
+}
