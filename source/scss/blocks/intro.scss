@@ -95,10 +95,11 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.27;
-  @include fade-in(false, true, 800ms, 500ms);
+  @include fade-transition(800ms, 500ms);
+  @include fade-in-up-initial();
 
   .active & {
-    @include fade-in(true);
+    @include fade-in-up-active();
   }
 
   @media (min-width: $stop-scaling) {

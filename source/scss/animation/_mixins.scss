@@ -1,16 +1,25 @@
-@mixin fade-in($active, $settings: false, $duration: 200ms, $delay: 0ms) {
-  @if($settings) {
-    transition-property: opacity, transform;
-    transition-duration: $duration;
-    transition-delay: $delay;
-  }
+@mixin fade-transition($duration: 200ms, $delay: 0ms) {
+  transition-property: opacity, transform;
+  transition-duration: $duration;
+  transition-delay: $delay;
+}
 
-  @if ($active) {
-    opacity: 1;
-    transform: translateY(0);
-  } @else {
-    opacity: 0;
-    transform: translateY(16px);
-  }
+@mixin fade-in-up-initial() {
+  opacity: 0;
+  transform: translateY(16px);
+}
 
+@mixin fade-in-up-active() {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@mixin fade-in-left-initial() {
+  opacity: 0;
+  transform: translateX(16px);
+}
+
+@mixin fade-in-left-active() {
+  opacity: 1;
+  transform: translateX(0);
 }

@@ -1,3 +1,5 @@
+@import "../animation/mixins.scss";
+
 .slider {
   position: relative;
   flex-grow: 1;
@@ -18,6 +20,13 @@
   flex-direction: column;
   padding: 14.6rem 4rem 10rem 9.7rem;
   height: auto;
+  @include fade-transition(800ms, 500ms);
+  @include fade-in-left-initial();
+
+  &.swiper-slide-active,
+  &.swiper-slide-next {
+    @include fade-in-left-active();
+  }
 
   @media (min-width: $stop-scaling) {
     padding: 146px 40px 100px 97px;
