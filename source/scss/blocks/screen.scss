@@ -1,3 +1,5 @@
+@import "../animation/mixins.scss";
+
 .screen {
   position: relative;
   display: flex;
@@ -46,6 +48,13 @@
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
+
+  @include move-transition(400ms, 250ms);
+  @include move-up-initial();
+
+  .loaded & {
+    @include move-up-active();
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;

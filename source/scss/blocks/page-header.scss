@@ -1,3 +1,5 @@
+@import "../animation/mixins.scss";
+
 .page-header {
   position: fixed;
   top: 0;
@@ -35,6 +37,13 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+
+  @include fade-transition(400ms, 300ms);
+  @include fade-in-right-initial();
+
+  .loaded & {
+    @include fade-in-right-active();
+  }
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -130,6 +139,13 @@
 .page-header__nav {
   display: flex;
   align-items: center;
+
+  @include fade-transition(400ms, 350ms);
+  @include fade-in-initial();
+
+  .loaded & {
+    @include fade-in-active();
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
