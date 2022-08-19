@@ -254,22 +254,20 @@
 
   a {
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     color: inherit;
     padding: 0 0.5em 0.5em;
     overflow: hidden;
 
-    &::before,
     &::after {
       content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
       display: block;
-      width: 100%;
+      width: 0;
       height: 2px;
       background-color: $c-light;
-      transition-property: transform;
+      transition-property: width, background-color;
       transition-duration: 300ms;
       transition-timing-function: linear;
 
@@ -286,27 +284,20 @@
       }
     }
 
-    &::before {
-      background-color: transparent;
-      transform: translateX(-100%);
+    &:hover {
+      align-items: flex-start;
+
+      &::after {
+        width: 100%;
+        background-color: $c-purple;
+      }
     }
 
-    &.active::before,
-    &:hover::before {
-      background-color: $c-purple;
-      transform: translateX(0);
-    }
-
-    &::after {
+    &.active::after {
       background-color: $c-light;
-      transform: translateX(100%);
+      width: 100%;
     }
 
-    &.active::after,
-    &:hover::after {
-      background-color: transparent;
-      transform: translateX(0);
-    }
 
     &:hover,
     &:focus {
