@@ -1,0 +1,39 @@
+@mixin fade-transition($duration: 200ms, $delay: 0ms) {
+  transition-property: opacity, transform;
+  transition-duration: $duration;
+  transition-delay: $delay;
+}
+
+@mixin fade-in-up-initial() {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+@mixin fade-in-up-active() {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@mixin fade-in-left-initial() {
+  opacity: 0;
+  transform: translateX(16px);
+}
+
+@mixin fade-in-left-active() {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@mixin grow-transition($duration: 200ms, $delay: 0ms, ) {
+  transition-property: width;
+  transition-duration: $duration;
+  transition-delay: $delay;
+}
+
+@mixin grow-initial($initial-size: 0) {
+  width: $initial-size;
+}
+
+@mixin grow-active($active-size: 100%) {
+  width: $active-size;
+}

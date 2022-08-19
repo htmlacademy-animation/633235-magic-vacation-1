@@ -168,6 +168,21 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  opacity: 0;
+  transform: translateY(16px);
+  transition-property: opacity, transform;
+
+  @for $i from 1 through 3 {
+    li:nth-child(#{$i}) & {
+      transition-delay: calc((#{$i} - 1) * 90ms);
+      transition-duration: calc(#{$i} * 180ms);
+    }
+  }
+
+  .social-block--active & {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;

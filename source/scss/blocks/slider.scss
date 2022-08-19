@@ -1,3 +1,5 @@
+@import "../animation/mixins.scss";
+
 .slider {
   position: relative;
   flex-grow: 1;
@@ -96,6 +98,20 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+
+  @include fade-in-left-initial();
+
+  .swiper-slide-active & {
+    @include fade-transition(800ms, 500ms);
+    @include fade-in-left-active();
+  }
+
+  @media(min-width: $mobile) {
+    .swiper-slide-next & {
+      @include fade-transition(800ms, 800ms);
+      @include fade-in-left-active();
+    }
+  }
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
