@@ -254,48 +254,50 @@
 
   a {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    display: block;
     color: inherit;
     padding: 0 0.5em 0.5em;
     overflow: hidden;
+    transition: color;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
 
-    &::after {
+    &::before {
       content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
       display: block;
       width: 0;
       height: 2px;
       background-color: $c-light;
       transition-property: width, background-color;
       transition-duration: 300ms;
+      transition-delay: 350ms;
       transition-timing-function: linear;
 
       @media (max-width: $tablet) and (orientation: portrait) {
-        left: 0;
-        right: 0;
+        width: 100%;
         background-color: $c-dark;
       }
 
       @media (max-width: $mobile) and (orientation: landscape) {
-        left: 0;
-        right: 0;
+        width: 100%;
         background-color: $c-dark;
       }
     }
 
-    &:hover {
-      align-items: flex-start;
-
-      &::after {
-        width: 100%;
-        background-color: $c-purple;
-      }
+    .loaded &.active::before {
+      width: 100%;
+      left: 0;
+      right: initial;
     }
 
-    &.active::after {
-      background-color: $c-light;
+    &:hover::before {
       width: 100%;
+      left: 0;
+      right: initial;
+      background-color: $c-purple;
     }
 
 
