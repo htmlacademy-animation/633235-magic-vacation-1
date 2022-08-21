@@ -45,8 +45,8 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
-  @include grow-transition(400ms, 0);
-  @include grow-initial();
+  @include grow-transition(400ms);
+  @include grow-initial(0);
 
   .active & {
     @include grow-active(calc(100% - 21rem));

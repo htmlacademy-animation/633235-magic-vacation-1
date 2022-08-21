@@ -4,6 +4,14 @@
   transition-delay: $delay;
 }
 
+@mixin fade-in-initial() {
+  opacity: 0;
+}
+
+@mixin fade-in-active() {
+  opacity: 1;
+}
+
 @mixin fade-in-up-initial() {
   opacity: 0;
   transform: translateY(16px);
@@ -24,16 +32,52 @@
   transform: translateX(0);
 }
 
-@mixin grow-transition($duration: 200ms, $delay: 0ms, ) {
-  transition-property: width;
+@mixin fade-in-right-initial() {
+  opacity: 0;
+  transform: translateX(-16px);
+}
+
+@mixin fade-in-right-active() {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@mixin grow-transition($duration: 200ms, $delay: 0ms, $timing-function: ease) {
+  transition-property: width, height;
   transition-duration: $duration;
   transition-delay: $delay;
+  transition-timing-function: $timing-function;
 }
 
-@mixin grow-initial($initial-size: 0) {
-  width: $initial-size;
+@mixin grow-initial($initial-width: null, $initial-height: null) {
+  @if $initial-width {
+    width: $initial-width;
+  }
+  @if $initial-height {
+    height: $initial-height;
+  }
 }
 
-@mixin grow-active($active-size: 100%) {
-  width: $active-size;
+@mixin grow-active($active-width: null, $active-height: null) {
+  @if $active-width {
+    width: $active-width;
+  }
+  @if $active-height {
+    height: $active-height;
+  }
+}
+
+@mixin move-transition($duration: 200ms, $delay: 200ms) {
+  transition-property: transform;
+  transition-duration: $duration;
+  transition-delay: $delay;
+  transition-timing-function: cubic-bezier(.17,.55,.22,.9);
+}
+
+@mixin move-up-initial() {
+  transform: translateY(100%);
+}
+
+@mixin move-up-active() {
+  transform: translateY(0);
 }
