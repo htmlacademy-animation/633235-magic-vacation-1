@@ -52,7 +52,7 @@
   @include move-transition(400ms, 250ms);
   @include move-up-initial();
 
-  .loaded & {
+  .loaded .active & {
     @include move-up-active();
   }
 
